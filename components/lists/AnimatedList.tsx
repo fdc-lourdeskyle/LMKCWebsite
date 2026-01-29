@@ -33,7 +33,7 @@ export default function AnimatedList() {
         variants={itemVariants}
         ref={textRef}
         animate={isInView ? "show" : "hidden"}
-        transition={{ type: "tween", duration: 0.7, ease: "backOut", stiffness: 200 }}
+        transition={{ type: "tween", duration: 0.8, ease: "backOut", stiffness: 200 }}
         className="lg:text-8xl text-6xl font-cormorant text-custom-creamy-beige tracking-[-0.08em] font-light"
       >
         Building
@@ -51,10 +51,10 @@ export default function AnimatedList() {
         variants={itemVariants}
         ref={textRef}
         animate={isInView ? "show" : "hidden"}
-        transition={{ type: "tween", duration: 0.9, ease: "backIn" }}
+        transition={{ type: "tween", duration: 0.8, ease: "backIn" }}
         className="lg:text-8xl text-6xl italic font-cormorant text-custom-creamy-beige font-light tracking-[-0.08em] -mt-4"
       >
-        Experiences
+        Systems
       </motion.p>
     </motion.div>
   );
