@@ -4,7 +4,10 @@ import { motion, useInView} from "framer-motion";
 import { useEffect, useState , useRef} from "react";
 import { once } from "events";
 import AnimatedList from "@/components/lists/AnimatedList";
-import SystemList from "@/components/lists/SystemList";
+import Heading from "@/components/texts/Heading";
+import Label from "@/components/texts/Label";
+import Text from "@/components/texts/Text";
+import TextContainer from "@/components/containers/TextContainer";
 
 export default function Home() {
 
@@ -17,22 +20,6 @@ export default function Home() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // type System = {
-  //   name: string;
-  //   description: string;
-  //   containerClassName: string;
-  //   itemClassName?: string;
-  // };
-
-  // const systems: System[] = [
-  //   { 
-  //     name: "Web Development", 
-  //     description: "Building responsive and dynamic websites.", 
-  //     containerClassName: "flex flex-col justify-center items-start mt-32 w-[350px]", 
-  //     itemClassName: "text-left -rotate-2 lg:text-4xl text-2xl font-raleway text-custom-blush-ivory tracking-[-0.08em] font-light" 
-  //   },
-  // ];
 
   return (
     <div className="flex flex-col space-y-28 items-center justify-center font-sans z-0">
@@ -74,15 +61,31 @@ export default function Home() {
         <div className="w-1/3">
           <div className="flex flex-col justify-center items-center mt-28 p-8">
             <div className="p-2 w-fit">
-              <p className="lg:text-6xl -rotate-2 text-2xl font-cormorant text-custom-blush-ivory tracking-[-0.05em] font-medium">E-commerce</p>
-              <p className="lg:text-6xl text-2xl -rotate-2 -mt-4 place-self-center font-cormorant text-custom-blush-ivory tracking-[-0.05em] font-medium"> Systems</p>
-              <p className="lg:text-[18px] text-2xl place-self-center mt-3 font-raleway text-custom-blush-ivory tracking-[-0.05em] font-medium">WHAT I HANDLED :</p>
+              <div className="-rotate-2">
+                <Heading children="E-commerce"></Heading>
+              </div>
+
+              <div className="-mt-2 -rotate-2 place-self-center">
+                <Heading children="Systems"></Heading>
+              </div>
+
+              <div className="mt-3">
+                <Label children="WHAT I HANDLED :"></Label>
+              </div>
             </div>
             <div className="flex flex-col space-y-4">
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">User Authentication</p>
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">Product Listing and Management</p>
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">Orders and Checkout Flow</p>
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">Stripe Payment</p>
+              <TextContainer animate={isInView ? "show" : "hidden"}> 
+                <Text children="User Authentication"></Text>
+              </TextContainer>
+              <TextContainer> 
+                <Text children="Product Listing and Management"></Text>
+              </TextContainer>
+              <TextContainer> 
+                <Text children="Orders and Checkout Flow"></Text>
+              </TextContainer>
+              <TextContainer> 
+                <Text children="Stripe Payment"></Text>
+              </TextContainer>
             </div>
           </div>
         </div>
@@ -93,30 +96,34 @@ export default function Home() {
          </div>
         </div>
         <div className="w-1/3">
-          {/* <div className="flex flex-col justify-center items-end mt-32 mr-4 p-8">
-            <p className="text-left -rotate-2 lg:text-4xl text-2xl font-raleway text-custom-blush-ivory tracking-[-0.08em] font-light">Information</p>
-            <p className="lg:text-5xl text-2xl font-raleway text-custom-blush-ivory tracking-[-0.08em] font-light">Systems</p>
-          </div> */}
           <div className="flex flex-col justify-center items-center mt-28 p-8">
             <div className="p-2 w-fit">
-              <p className="lg:text-6xl rotate-2 text-2xl font-cormorant text-custom-blush-ivory tracking-[-0.05em] font-medium">Information</p>
-              <p className="lg:text-6xl text-2xl rotate-2 -mt-4 place-self-center font-cormorant text-custom-blush-ivory tracking-[-0.05em] font-medium"> Systems</p>
-              <p className="lg:text-[18px] text-2xl place-self-center mt-3 font-raleway text-custom-blush-ivory tracking-[-0.05em] font-medium">WHAT I HANDLED :</p>
+              <div className="rotate-2">
+                <Heading children="Information"></Heading>
+              </div>
+
+              <div className="-mt-2 rotate-2 place-self-center">
+                <Heading children="Systems"></Heading>
+              </div>
+
+              <div className="mt-3">
+                <Label children="WHAT I HANDLED :"></Label>
+              </div>
             </div>
             <div className="flex flex-col space-y-4">
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">CRUD Operations</p>
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">User Roles</p>
-              <p className="lg:text-[18px]  text-2xl font-raleway text-custom-brown tracking-[-0.05em] font-medium p-2 bg-custom-blush-ivory rounded-2xl border-1 border-black">Data Validation & Reporting</p>
+              <TextContainer> 
+                <Text children="CRUD Operations"></Text>
+              </TextContainer>
+              <TextContainer> 
+                <Text children="User Roles"></Text>
+              </TextContainer>
+              <TextContainer> 
+                <Text children="Data Validation & Reporting"></Text>
+              </TextContainer>
             </div>
           </div>
         </div>
       </motion.div>
-{/* 
-      <div className="grid grid-flow-col grid-rows-2 lg:p-8">
-      </div> */}
-
-      {/* end of second section */}
-
     </div>
 );
 }
